@@ -3,14 +3,32 @@ package com.company;
 public class Principal {
 
     public static void main(String[] args) {
-        Automovil peugeot = new Automovil("Peugeot", "208");
-        peugeot.setColor(Color.AZUL);
-        peugeot.setCilindrada(1.457);
+
+
+
+        Motor motorPeugeot208 = new Motor(3.0,TipoMotor.BENCINA);
+
+        Persona conductorPeugeot208 = new Persona("Facundo","Cordoba");
+        Automovil peugeot = new Automovil("Peugeot", "208",Color.AZUL ,motorPeugeot208,new Estanque(),conductorPeugeot208);
         peugeot.setTipo(TipoAutomovil.SEDAN);
 
-        Automovil citroenC4Louge = new Automovil("Citroën", "C4 Lounge");
+            peugeot.addRueda(new Rueda("Yokohama",20,7.5))
+                    .addRueda(new Rueda("Yokohama",20,7.5))
+                    .addRueda(new Rueda("Yokohama",20,7.5))
+                    .addRueda(new Rueda("Yokohama",20,7.5))
+                    .addRueda(new Rueda("Yokohama",20,7.5));
+
+
+
+
+        System.out.println("**** ver detalle *****");
+        System.out.println(peugeot.verDetalle());
+
+
+        Persona conductorCitroenC4 = new Persona("Fatima", "Quinteros");
+        Motor motorCitroeC4 = new Motor(2.0,TipoMotor.BENCINA);
+        Automovil citroenC4Louge = new Automovil("Citroën", "C4 Lounge",Color.BLANCO,motorCitroeC4,new Estanque(),conductorCitroenC4,null);
         citroenC4Louge.setColor(Color.BLANCO);
-        citroenC4Louge.setCilindrada(1998);
         citroenC4Louge.setTipo(TipoAutomovil.COUPE);
 
         switch(citroenC4Louge.getTipo()){
